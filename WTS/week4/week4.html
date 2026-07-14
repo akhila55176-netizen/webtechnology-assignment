@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <style>
+      input[type=text]{
+        width:100%;
+        background-color:rgb(122, 248, 248);
+        color:white;
+        border:2px solid;
+        padding:15px;
+      }
+      input[type=number]{
+        width:100%;
+        background-color:purple;
+        color:white;
+        border:2px solid;
+        padding:15px;
+      }
+       input[type=button]{
+        background-color:rgb(101, 232, 101);
+        color:white;
+        border:2px solid;
+        margin-top: 50px;
+
+        height:30px;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <form>
+      Name<input type="text" placeholder="Enter your Name"><br>
+      Occupation<input type="text" placeholder="Enter your occupation"><br>
+      Amount<input type="number" placeholder="Enter loan amount" id="amount"><br>
+      Rate of Intrest<input type="number" placeholder="Enter ROI" id="roi"><br>
+      Tenure<input type="number" placeholder="Enter number of months" id="tenure"><br>
+      <input type="button" value="Calculate EMI" onclick="calculate()">
+    </form>
+     <p id="result"></p>
+    <script>
+      function calculate(){
+      var A=document.getElementById("amount").value;
+      var intrest=document.getElementById("roi").value;
+      var years=document.getElementById("tenure").value;
+      var months=years*12;
+      var R=intrest/(12*100);
+      var emi=A*R*Math.pow(1+R,months)/(Math.pow(1+R,months)-1);
+      document.getElementById("result").innerHTML="<h2>Your EMI is:</h2>"+emi.toFixed(2);
+      }
+    </script>
+    <p>24881A12A3</p>
+    <p>M.Akhila</p>
+  </body>
+</html>
